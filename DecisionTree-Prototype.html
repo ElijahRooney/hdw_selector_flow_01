@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form Prototype 3000</title>
+<style>
+	body{
+		display: flex;
+		flex-direction: column;
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	}
+	@media (min-width: 650px) {
+		.theBody{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+		}
+			.LeftSide{
+			/*background-color: red;*/
+			padding: 5px;
+			width: 55%;
+		}
+		.RightSide{
+			/*background-color: blue;*/
+			padding: 10px;
+			width: 45%;
+		}
+		.theQuestion{
+			padding: 10px;
+			border-radius: 10px;
+		}	
+	}
+	@media (max-width: 649px) {
+		.theBody{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+		}
+		.LeftSide{
+			/*background-color: red;*/
+			padding: 5px;
+			width: 100%;
+		}
+		.RightSide{
+			/*background-color: blue;*/
+			padding: 10px;
+			width: 100%;
+		}
+		.theQuestion{
+			padding: 10px;
+			border-radius: 10px;
+		}	
+	}
+	
+</style>
+</head>
+
+<body>
+	<h1>This is a Title...idk bro, what if you need a title </h1>
+	<h4>This is a SubTitle...idk bro, what if you need a Subtitle...Like What if you need to tell users what to do in the very beginning.</h4>
+	<div class="theBody">
+	<div class="LeftSide">
+		<form name="theForm3000" id="Form3000" class="Form3000">
+			<div class="theQuestion" style="background-color: darksalmon;">
+				<p>1) Where will you use your device most often?
+				</p>
+				<p><input type="radio" name="question1" value="option1">Outside the office and at home</p>
+				<p><input type="radio" name="question1" value="option2">Around the office/at my desk</p>
+				<p><input type="radio" name="question1" value="option3">Only at my desk</p>
+			</div>
+			<div class="theQuestion" style="background-color: lightsteelblue;">
+				<p>2) What will you primarily need your device for?</p>
+				<p><input type="radio" name="question2" value="option4">Calls, email and basic tasks online</p>
+				<p><input type="radio" name="question2" value="option5">Editing documents, running presentations</p>
+				<p><input type="radio" name="question2" value="option6">Data management, accounting/finance(Excel)</p>
+				<p><input type="radio" name="question2" value="option7">More demanding workloads</p>
+			</div>
+			<div class="theQuestion" style="background-color: darksalmon;">
+				<p>3) How often will you carry your device around?</p>
+				<p><input type="radio" name="question3" value="option8">Always</p>
+				<p><input type="radio" name="question3" value="option9">Occasionally</p>
+				<p><input type="radio" name="question3" value="option10">Rarely/Never</p>
+			</div>
+			<div class="theQuestion" style="background-color: lightsteelblue;">
+				<p>4) What matters most?</p>
+				<p><input type="radio" name="question4" value="option11">Battery life + connectivity</p>
+				<p><input type="radio" name="question4" value="option12">Running multiple applications/multitasking</p>
+				<p><input type="radio" name="question4" value="option13">Performance</p>
+			</div>
+			<div class="theQuestion" style="background-color: darksalmon;">
+				<p>5) How large a screendo you need to perform your work?</p>
+				<p><input type="radio" name="question5" value="option14">Less than 8 inches </p>
+				<p><input type="radio" name="question5" value="option15">8–13 inches </p>
+				<p><input type="radio" name="question5" value="option16">Greater than 13 inches</p>
+			</div>
+			<br>
+			<input style="display: block;" id="ResultsBttn" onclick="check()" value="Done" type="button">
+
+			<p id="demo01"></p>
+		<p id="demo02"></p>
+		</form>
+		<div style="background-color: lightsteelblue;">
+			<div><p id="theResults">Click Done when you finish all 5 questions</p></div>
+			<div><p id="theDescription"></p></div>
+			<div><p id="theNeeds"></p></div>
+			<div><p id="theRec"></p></div>
+		</div>
+	</div>
+	<div class="RightSide">
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	</div>
+	</div>
+	<!--<script type="text/javascript">
+		function DoneBttnCounter() {
+			var doneBttn = 0;
+			var q1 = document.theForm3000.question1.value;
+			var q2 = document.theForm3000.question2.value;
+			var q3 = document.theForm3000.question3.value;
+			var q4 = document.theForm3000.question4.value;
+			var q5 = document.theForm3000.question5.value;
+			
+			if(q1 == ("option1") || ("option2") || ("option3")){
+				doneBttn++;
+			}
+			
+		}
+	</script>-->
+	<script type="text/javascript">
+		function check() {
+			var	results = 0;
+			var doneBttn = 0;
+			var q1 = document.theForm3000.question1.value;
+			var q2 = document.theForm3000.question2.value;
+			var q3 = document.theForm3000.question3.value;
+			var q4 = document.theForm3000.question4.value;
+			var q5 = document.theForm3000.question5.value;
+			if (q1 == "option1") {
+				results++;
+				doneBttn++;
+				
+			}
+			else{
+					if (q1 == "option2") {
+					results += 10;
+					doneBttn++;
+					
+					}
+					else{
+						if (q1 == "option3") {
+						results += 100;
+						doneBttn++;
+						
+						}
+					}
+				}
+		
+			
+			if (q2 == "option4") {
+				results++;
+				doneBttn++;
+			}
+			else{
+					if (q2 == "option5") {
+					results += 10;
+					doneBttn++;
+					}
+					else{
+						if (q2 == "option6") {
+						results += 100;
+						doneBttn++;
+						}
+						else{
+							if (q2 == "option7") {
+							results += 1000;
+							doneBttn++;
+						}
+					}
+				}
+			}
+			
+			if (q3 == "option8") {
+				results++;
+				doneBttn++;
+				
+			}
+			else{
+					if (q3 == "option9") {
+					results += 10;
+					doneBttn++;
+					
+					}
+					else{
+						if (q3 == "option10") {
+						results += 100;
+						doneBttn++;
+						
+						}
+					}
+				}
+			
+			if (q4 == "option11") {
+				results++;
+				doneBttn++;
+				
+			}
+			else{
+					if (q4 == "option12") {
+					results += 10;
+					doneBttn++;
+					
+					}
+					else{
+						if (q4 == "option13") {
+						results += 100;
+						doneBttn++;
+						
+						}
+					}
+				}
+			
+			if (q5 == "option14") {
+				results++;
+				doneBttn++;
+				
+			}
+			else{
+					if (q5 == "option15") {
+					results += 10;
+					doneBttn++;
+					
+					}
+					else{
+						if (q5 == "option16") {
+						results += 100;
+						doneBttn++;
+						
+						}
+					}
+				}
+			
+			document.getElementById("demo01").innerHTML = "Results Score: " + results;
+			document.getElementById("demo02").innerHTML = "Done Score: " + doneBttn;
+			
+			
+			if((results > 0) && (results <= 5)){
+			document.getElementById("theResults").innerHTML
+                = "You are a Mobile User! Go-On and tell the Org!";
+				document.getElementById("theDescription").innerHTML
+                = "Exceptionally mobile, uses cloud applications/email, relies heavily on phone calls/texts";
+				document.getElementById("theNeeds").innerHTML
+                = "Wireless connectivity. Access to cloud applications and email Extremely portable device";
+				document.getElementById("theRec").innerHTML
+                = "Samsung Galaxy Tab A (+accessories)";
+			}
+			if((results >= 10) && (results < 40)){
+			document.getElementById("theResults").innerHTML
+                = "You are a Mobile+ User! Go-On and tell the Org!";
+				document.getElementById("theDescription").innerHTML
+                = "Elevated workload, uses cloud applications/email, mobile apps, frequent phone calls/texts";
+				document.getElementById("theNeeds").innerHTML
+                = "Wireless connectivityAccess to cloud and/or mobile apps and emailExtremely portable device";
+				document.getElementById("theRec").innerHTML
+                = "Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories)";
+			}
+			if((results >= 40) && (results < 100)){
+			document.getElementById("theResults").innerHTML
+                = "You are a Standard User! Go-On and tell the Org!";
+				document.getElementById("theDescription").innerHTML
+                = "Moderate workload, uses cloud/desktop applications and email, no specialized software, frequently uses chat, video and voice calls";
+				document.getElementById("theNeeds").innerHTML
+                = "Wireless connectivity Access to cloud/desktop applications and email Teleconferencing capability Minimal processing power";
+				document.getElementById("theRec").innerHTML
+                = "Microsoft Surface Laptop Go, Lenovo X13";
+			}
+			if((results >= 100) && (results <1000)){
+			document.getElementById("theResults").innerHTML
+                = "You are a Heavy User! Go-On and tell the Org!";
+				document.getElementById("theDescription").innerHTML
+                = "Demanding workload, uses cloud/desktop applications and email, may use specialized software, frequently uses chat, video and voice calls";
+				document.getElementById("theNeeds").innerHTML
+                = "Access to cloud/desktop applications and email Teleconferencing capability Moderate processing power Portable device";
+				document.getElementById("theRec").innerHTML
+                = "Lenovo";
+			}
+			if(results >= 1000){
+			document.getElementById("theResults").innerHTML
+                = "You are a Built to Order! Go-On and tell the Org!";
+				document.getElementById("theDescription").innerHTML
+                = "Demanding workload, uses cloud/desktop applications and email, must use specialized software, frequently uses chat, video and voice calls";
+				document.getElementById("theNeeds").innerHTML
+                = "Access to cloud/desktop applications and email Teleconferencing capability Extreme processing power Expanded system memory, storage, dedicated GPU(s)";
+				document.getElementById("theRec").innerHTML
+                = "High-end desktop";
+			}
+		}	
+	
+	</script>
+</body>
+</html>
