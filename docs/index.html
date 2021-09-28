@@ -56,12 +56,18 @@
 		}	
 	}
 	
+	#theResults{
+		font-size: 18px;
+		font-weight: bold;
+	}
+	
+
 </style>
 </head>
 
 <body>
-	<h1>This is a Title...idk bro, what if you need a title </h1>
-	<h4>This is a SubTitle...idk bro, what if you need a Subtitle...Like What if you need to tell users what to do in the very beginning.</h4>
+	<h1>Hardware Selector Flow Quiz</h1>
+	<h4>Please answer each question with the option that is best associated with you and your work situation.</h4>
 	<div class="theBody">
 	<div class="LeftSide">
 		<form name="theForm3000" id="Form3000" class="Form3000">
@@ -100,10 +106,9 @@
 			<br>
 			<input style="display: block;" id="ResultsBttn" onclick="check()" value="Done" type="button">
 
-			<p id="demo01"></p>
-		<p id="demo02"></p>
+			<p id="demo01" style="display: none;"></p>
 		</form>
-		<div style="background-color: lightsteelblue;">
+		<div style="background-color: lightsteelblue; padding: 10px;">
 			<div><p id="theResults">Click Done when you finish all 5 questions</p></div>
 			<div><p id="theDescription"></p></div>
 			<div><p id="theNeeds"></p></div>
@@ -111,24 +116,10 @@
 		</div>
 	</div>
 	<div class="RightSide">
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		<img class="VideoThumbnail" alt="" src="https://rescue.box.com/shared/static/0lf00aq8zz4no9vkxu0yutdnyh1j5ole.png" style="cursor: pointer; width: 100%; height: auto" />
 	</div>
 	</div>
-	<!--<script type="text/javascript">
-		function DoneBttnCounter() {
-			var doneBttn = 0;
-			var q1 = document.theForm3000.question1.value;
-			var q2 = document.theForm3000.question2.value;
-			var q3 = document.theForm3000.question3.value;
-			var q4 = document.theForm3000.question4.value;
-			var q5 = document.theForm3000.question5.value;
-			
-			if(q1 == ("option1") || ("option2") || ("option3")){
-				doneBttn++;
-			}
-			
-		}
-	</script>-->
+	
 	<script type="text/javascript">
 		function check() {
 			var	results = 0;
@@ -243,58 +234,57 @@
 				}
 			
 			document.getElementById("demo01").innerHTML = "Results Score: " + results;
-			document.getElementById("demo02").innerHTML = "Done Score: " + doneBttn;
 			
 			
 			if((results > 0) && (results <= 5)){
 			document.getElementById("theResults").innerHTML
-                = "You are a Mobile User! Go-On and tell the Org!";
+                = "You are a Mobile User!";
 				document.getElementById("theDescription").innerHTML
-                = "Exceptionally mobile, uses cloud applications/email, relies heavily on phone calls/texts";
+                = "Exceptionally mobile, uses cloud applications/email, relies heavily on phone calls/texts.";
 				document.getElementById("theNeeds").innerHTML
-                = "Wireless connectivity. Access to cloud applications and email Extremely portable device";
+                = "Your needs:  Wireless connectivity. Access to cloud applications and email Extremely portable device.";
 				document.getElementById("theRec").innerHTML
-                = "Samsung Galaxy Tab A (+accessories)";
+                = "Device(s) we recommend:  Samsung Galaxy Tab A (+accessories).";
 			}
 			if((results >= 10) && (results < 40)){
 			document.getElementById("theResults").innerHTML
-                = "You are a Mobile+ User! Go-On and tell the Org!";
+                = "You are a Mobile+ User!";
 				document.getElementById("theDescription").innerHTML
-                = "Elevated workload, uses cloud applications/email, mobile apps, frequent phone calls/texts";
+                = "Elevated workload, uses cloud applications/email, mobile apps, frequent phone calls/texts.";
 				document.getElementById("theNeeds").innerHTML
-                = "Wireless connectivityAccess to cloud and/or mobile apps and emailExtremely portable device";
+                = "Your needs:  Wireless connectivityAccess to cloud and/or mobile apps and emailExtremely portable device.";
 				document.getElementById("theRec").innerHTML
-                = "Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories)";
+                = "Device(s) we recommend:  Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories).";
 			}
 			if((results >= 40) && (results < 100)){
 			document.getElementById("theResults").innerHTML
-                = "You are a Standard User! Go-On and tell the Org!";
+                = "You are a Standard User!";
 				document.getElementById("theDescription").innerHTML
-                = "Moderate workload, uses cloud/desktop applications and email, no specialized software, frequently uses chat, video and voice calls";
+                = "Moderate workload, uses cloud/desktop applications and email, no specialized software, frequently uses chat, video and voice calls.";
 				document.getElementById("theNeeds").innerHTML
-                = "Wireless connectivity Access to cloud/desktop applications and email Teleconferencing capability Minimal processing power";
+                = "Your needs:  Wireless connectivity Access to cloud/desktop applications and email Teleconferencing capability Minimal processing power.";
 				document.getElementById("theRec").innerHTML
-                = "Microsoft Surface Laptop Go, Lenovo X13";
+                = "Device(s) we recommend:  Microsoft Surface Laptop Go, Lenovo X13.";
 			}
 			if((results >= 100) && (results <1000)){
 			document.getElementById("theResults").innerHTML
-                = "You are a Heavy User! Go-On and tell the Org!";
+                = "You are a Heavy User!";
 				document.getElementById("theDescription").innerHTML
-                = "Demanding workload, uses cloud/desktop applications and email, may use specialized software, frequently uses chat, video and voice calls";
+                = "Demanding workload, uses cloud/desktop applications and email, may use specialized software, frequently uses chat, video and voice calls.";
 				document.getElementById("theNeeds").innerHTML
-                = "Access to cloud/desktop applications and email Teleconferencing capability Moderate processing power Portable device";
+                = "Your needs:  Access to cloud/desktop applications and email Teleconferencing capability Moderate processing power Portable device.";
 				document.getElementById("theRec").innerHTML
-                = "Lenovo";
+                = "Device(s) we recommend:  Lenovo.";
 			}
 			if(results >= 1000){
 			document.getElementById("theResults").innerHTML
-                = "You are a Built to Order! Go-On and tell the Org!";
+                = "Built to Order!";
 				document.getElementById("theDescription").innerHTML
-                = "Demanding workload, uses cloud/desktop applications and email, must use specialized software, frequently uses chat, video and voice calls";
+                = "Demanding workload, uses cloud/desktop applications and email, must use specialized software, frequently uses chat, video and voice calls.";
 				document.getElementById("theNeeds").innerHTML
-                = "Access to cloud/desktop applications and email Teleconferencing capability Extreme processing power Expanded system memory, storage, dedicated GPU(s)";
+                = "Your needs:  Access to cloud/desktop applications and email Teleconferencing capability Extreme processing power Expanded system memory, storage, dedicated GPU(s).";
 				document.getElementById("theRec").innerHTML
-                = "High-end desktop";
+                = "Device(s) we recommend:  High-end desktop.";
 			}
 		}	
 	
