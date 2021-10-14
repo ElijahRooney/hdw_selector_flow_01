@@ -7,53 +7,140 @@
 	body{
 		display: flex;
 		flex-direction: column;
-		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+		font-family: "Helvetica";
+		background-color: #f2e9e6;
 	}
 	@media (min-width: 650px) {
 		.theBody{
 			width: 100%;
 			display: flex;
 			flex-direction: row;
-			justify-content: space-between;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
 
 		}
-			.LeftSide{
-			/*background-color: red;*/
-			padding: 5px;
-			width: 55%;
-		}
-		.RightSide{
-			/*background-color: blue;*/
-			padding: 10px;
-			width: 45%;
-		}
+
 		.theQuestion{
 			padding: 10px;
 			border-radius: 10px;
-		}	
+			
+		}
+		
+		.theQuestion:hover {
+			background-color: #e6e6e6;
+		}
+		
+		.Form3000{
+			width: 640px;
+			padding: 5px 20px;
+			border-radius: 10px;
+		}
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 150%; /* Full height */
+		  overflow: none; /* Disabled scroll */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		  margin-top: -190px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: 15% auto; /* 15% from the top and centered */
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		
+		#deviceImage{
+			width: 36%; 
+			height: 36%;
+		}
 	}
+	
+	
 	@media (max-width: 649px) {
 		.theBody{
 			width: 100%;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
-
-		}
-		.LeftSide{
-			/*background-color: red;*/
-			padding: 5px;
-			width: 100%;
-		}
-		.RightSide{
-			/*background-color: blue;*/
-			padding: 10px;
-			width: 100%;
+			justify-content: center;
+			align-content: center;
 		}
 		.theQuestion{
 			padding: 10px;
-			border-radius: 10px;
 		}	
+		
+		.Form3000{
+			width: 100%;
+			padding: 0px;
+		}
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: none; /* Disabled scroll */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		  margin-top: 0px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: 15% auto; /* 15% from the top and centered */
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		
+		#deviceImage{
+			width: 100%; 
+			height: 100%;
+		}
 	}
 	
 	#theResults{
@@ -61,66 +148,163 @@
 		font-weight: bold;
 	}
 	
+	
+	
 
 </style>
 </head>
 
 <body>
-	<h1>Hardware Selector Flow Quiz</h1>
-	<h4>Please answer each question with the option that is best associated with you and your work situation. Click DONE after all the questions have been answered!</h4>
+	
 	<div class="theBody">
-	<div class="LeftSide">
-		<form name="theForm3000" id="Form3000" class="Form3000">
-			<div class="theQuestion" style="background-color: darksalmon;">
+		<form name="theForm3000" id="Form3000" class="Form3000" style="display: flex; flex-direction: column; background-color: #FFFFFF">
+			<div style = "padding: 10px;">
+				<h1>Fit-for-Purpose Hardware Selector Tool</h1>
+				<p>Please answer each question with the option that is best associated with you and your work situation. Click DONE after all the questions have been answered!</p>
+			</div>
+			<div class="theQuestion" id="theQuestion1">
 				<p>1) Where will you use your device most often?
 				</p>
-				<p><input type="radio" name="question1" value="option1">Outside the office and at home</p>
-				<p><input type="radio" name="question1" value="option2">Around the office/at my desk</p>
-				<p><input type="radio" name="question1" value="option3">Only at my desk</p>
+				<p><input type="radio" name="question1" value="option1" onclick="getRadioValue1()">Outside the office and at home</p>
+				<p><input type="radio" name="question1" value="option2" onclick="getRadioValue1()">Around the office/at my desk</p>
+				<p><input type="radio" name="question1" value="option3" onclick="getRadioValue1()">Only at my desk</p>
 			</div>
-			<div class="theQuestion" style="background-color: lightsteelblue;">
+			<div class="theQuestion" id="theQuestion2" style="display: none;">
 				<p>2) What will you primarily need your device for?</p>
-				<p><input type="radio" name="question2" value="option4">Calls, email and basic tasks online</p>
-				<p><input type="radio" name="question2" value="option5">Editing documents, running presentations</p>
-				<p><input type="radio" name="question2" value="option6">Data management, accounting/finance(Excel)</p>
-				<p><input type="radio" name="question2" value="option7">More demanding workloads</p>
+				<p><input type="radio" name="question2" value="option4" onclick="getRadioValue2()">Calls, email and basic tasks online</p>
+				<p><input type="radio" name="question2" value="option5" onclick="getRadioValue2()">Editing documents, running presentations</p>
+				<p><input type="radio" name="question2" value="option6" onclick="getRadioValue2()">Data management, accounting/finance(Excel)</p>
+				<p><input type="radio" name="question2" value="option7" onclick="getRadioValue2()">More demanding workloads</p>
 			</div>
-			<div class="theQuestion" style="background-color: darksalmon;">
+			<div class="theQuestion" id="theQuestion3" style="display: none;">
 				<p>3) How often will you carry your device around?</p>
-				<p><input type="radio" name="question3" value="option8">Always</p>
-				<p><input type="radio" name="question3" value="option9">Occasionally</p>
-				<p><input type="radio" name="question3" value="option10">Rarely/Never</p>
+				<p><input type="radio" name="question3" value="option8" onclick="getRadioValue3()">Always</p>
+				<p><input type="radio" name="question3" value="option9" onclick="getRadioValue3()">Occasionally</p>
+				<p><input type="radio" name="question3" value="option10" onclick="getRadioValue3()">Rarely/Never</p>
 			</div>
-			<div class="theQuestion" style="background-color: lightsteelblue;">
+			<div class="theQuestion" id="theQuestion4" style="display: none;">
 				<p>4) What matters most?</p>
-				<p><input type="radio" name="question4" value="option11">Battery life + connectivity</p>
-				<p><input type="radio" name="question4" value="option12">Running multiple applications/multitasking</p>
-				<p><input type="radio" name="question4" value="option13">Performance</p>
+				<p><input type="radio" name="question4" value="option11" onclick="getRadioValue4()">Battery life + connectivity</p>
+				<p><input type="radio" name="question4" value="option12" onclick="getRadioValue4()">Running multiple applications/multitasking</p>
+				<p><input type="radio" name="question4" value="option13" onclick="getRadioValue4()">Performance</p>
 			</div>
-			<div class="theQuestion" style="background-color: darksalmon;">
+			<div class="theQuestion" id="theQuestion5" style="display: none;">
 				<p>5) How large a screendo you need to perform your work?</p>
-				<p><input type="radio" name="question5" value="option14">Less than 8 inches </p>
-				<p><input type="radio" name="question5" value="option15">8–13 inches </p>
-				<p><input type="radio" name="question5" value="option16">Greater than 13 inches</p>
+				<p><input type="radio" name="question5" value="option14" onclick="getRadioValue5()">Less than 8 inches </p>
+				<p><input type="radio" name="question5" value="option15" onclick="getRadioValue5()">8–13 inches </p>
+				<p><input type="radio" name="question5" value="option16" onclick="getRadioValue5()">Greater than 13 inches</p>
 			</div>
 			<br>
-			<input style="display: block;" id="ResultsBttn" onclick="check()" value="DONE" type="button">
+			<div id="myBtn" style="display: none;">
+				<input style="display: block; align-self: center; width: 100%; height: 50px; font-size: " id="ResultsBttn" onclick="check()" value="DONE" type="button" >
+			</div>
 			<br>
 			<p id="demo01" style="display: none;"></p>
 		</form>
-		<div style="background-color: lightsteelblue; padding: 10px;">
-			<div><p id="theResults">Click DONE when you finish all 5 questions</p></div>
-			<div><p id="theDescription"></p></div>
-			<div><p id="theNeeds"></p></div>
-			<div><p id="theRec"></p></div>
-		</div>
-	</div>
-	<div class="RightSide">
-		<img alt="" src="https://rescue.box.com/shared/static/0lf00aq8zz4no9vkxu0yutdnyh1j5ole.png" style="cursor: pointer; width: 100%; height: auto" id="deviceImage" />
-	</div>
 	</div>
 	
+	
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<div><p id="theResults">Click Done when you finish all 5 questions</p>
+		</div>
+		<div><p id="theDescription"></p></div>
+		<div><p id="theNeeds"></p></div>
+		<div><p id="theRec"></p></div>
+		<img alt="" src="https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png" id="deviceImage" />
+	  </div>
+
+	</div>
+		
 	<script type="text/javascript">
+		var Q1 = document.getElementById("theQuestion1");
+		var Q2 = document.getElementById("theQuestion2");
+		var Q3 = document.getElementById("theQuestion3");
+		var Q4 = document.getElementById("theQuestion4");
+		var Q5 = document.getElementById("theQuestion5");	
+		var done = document.getElementById("myBtn");
+		
+		function getRadioValue1() {
+			var q1 = document.getElementsByName('question1');
+			 for(i = 0; i < q1.length; i++) {
+				  if(q1[i].checked)
+				  Q2.style.display = "block";
+				  window.scrollTo(100, 150);
+			 }
+		}
+		
+		function getRadioValue2() {
+			var q2 = document.getElementsByName('question2');
+			 for(i = 0; i < q2.length; i++) {
+				  if(q2[i].checked)
+				  Q3.style.display = "block";
+				  window.scrollTo(100, 150);
+			 }
+		}
+		
+		function getRadioValue3() {
+			var q3 = document.getElementsByName('question3');
+			 for(i = 0; i < q3.length; i++) {
+				  if(q3[i].checked)
+				  Q4.style.display = "block";
+				  window.scrollTo(100, 450);
+			 }
+		}
+		
+		function getRadioValue4() {
+			var q4 = document.getElementsByName('question4');
+			 for(i = 0; i < q4.length; i++) {
+				  if(q4[i].checked)
+				  Q5.style.display = "block";
+				  window.scrollTo(100, 650);
+			 }
+		}
+		
+		function getRadioValue5() {
+			var q5 = document.getElementsByName('question5');
+			 for(i = 0; i < q5.length; i++) {
+				  if(q5[i].checked)
+				  done.style.display = "block";
+				  window.scrollTo(100, 850);
+			 }
+		}
+		
+		
+	</script>
+	
+	<script type="text/javascript">
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var xout = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on the button, open the modal
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		xout.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+		  }
+		}
+		
+		
+		
 		function check() {
 			var	results = 0;
 			var doneBttn = 0;
@@ -253,8 +437,8 @@
 				document.getElementById("theRec").innerHTML
                 = "Device(s) we recommend:  Samsung Galaxy Tab A (+accessories).";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/1ypaflxrtln0s1ng400rf2dgdrax61w3.png")) {
-					image.src = "https://rescue.box.com/shared/static/1ypaflxrtln0s1ng400rf2dgdrax61w3.png";
+				if (!image.src.match("https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg";
 				}
 			}
 			if((results >= 10) && (results < 40)){
@@ -266,8 +450,8 @@
                 = "Your needs:  Wireless connectivityAccess to cloud and/or mobile apps and emailExtremely portable device.";
 				document.getElementById("theRec").innerHTML
                 = "Device(s) we recommend:  Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories).";
-				if (!image.src.match("https://rescue.box.com/shared/static/hedbsq58lfs1lvzhtvtr98rkna3yfsch.png")) {
-					image.src = "https://rescue.box.com/shared/static/hedbsq58lfs1lvzhtvtr98rkna3yfsch.png";
+				if (!image.src.match("https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg";
 				}
 			}
 			if((results >= 40) && (results < 100)){
@@ -280,8 +464,8 @@
 				document.getElementById("theRec").innerHTML
                 = "Device(s) we recommend:  Microsoft Surface Laptop Go, Lenovo X13.";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/yvla4l2ynmyy7t5shdo1q5tu8pleo55g.png")) {
-					image.src = "https://rescue.box.com/shared/static/yvla4l2ynmyy7t5shdo1q5tu8pleo55g.png";
+				if (!image.src.match("https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg";
 				}
 				
 			}
@@ -295,8 +479,8 @@
 				document.getElementById("theRec").innerHTML
                 = "Device(s) we recommend:  Lenovo.";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/1e5ab9rlkk6atc2b3f86tcusz3lep4p1.png")) {
-					image.src = "https://rescue.box.com/shared/static/1e5ab9rlkk6atc2b3f86tcusz3lep4p1.png";
+				if (!image.src.match("https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg";
 				}
 				
 			}
@@ -310,8 +494,8 @@
 				document.getElementById("theRec").innerHTML
                 = "Device(s) we recommend:  High-end desktop.";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/miqeti4ucr3o1qt0sfyes1b79yxfsj4y.png")) {
-					image.src = "https://rescue.box.com/shared/static/miqeti4ucr3o1qt0sfyes1b79yxfsj4y.png";
+				if (!image.src.match("https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png")) {
+					image.src = "https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png";
 				}
 				
 			}
