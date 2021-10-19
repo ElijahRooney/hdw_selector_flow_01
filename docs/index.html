@@ -8,7 +8,7 @@
 		display: flex;
 		flex-direction: column;
 		font-family: "Helvetica";
-		background-color: #f2e9e6;
+		background-color: #f1f1f1;
 	}
 	@media (min-width: 650px) {
 		.theBody{
@@ -76,8 +76,10 @@
 		}
 		
 		#deviceImage{
-			width: 36%; 
-			height: 36%;
+			width: 30%; 
+			height: 30%;
+			align-self: center;
+			margin-top: -10px;
 		}
 	}
 	
@@ -140,6 +142,7 @@
 		#deviceImage{
 			width: 100%; 
 			height: 100%;
+			align-self: center;
 		}
 	}
 	
@@ -160,7 +163,7 @@
 		<form name="theForm3000" id="Form3000" class="Form3000" style="display: flex; flex-direction: column; background-color: #FFFFFF">
 			<div style = "padding: 10px;">
 				<h1>Fit-for-Purpose Hardware Selector Tool</h1>
-				<p>Please answer each question with the option that is best associated with you and your work situation. Click DONE after all the questions have been answered!</p>
+				<p>Choose a response that best fits your purpose. Just click DONE when complete!</p>
 			</div>
 			<div class="theQuestion" id="theQuestion1">
 				<p>1) Where will you use your device most often?
@@ -208,18 +211,20 @@
 	<div id="myModal" class="modal">
 
 	  <!-- Modal content -->
-	  <div class="modal-content">
+	  <div class="modal-content" style="display: flex; flex-direction: column;">
 		<span class="close">&times;</span>
 		<div><p id="theResults">Click Done when you finish all 5 questions</p>
 		</div>
 		<div><p id="theDescription"></p></div>
-		<div><p id="theNeeds"></p></div>
 		<div><p id="theRec"></p></div>
-		<img alt="" src="https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png" id="deviceImage" />
+		<img style="align-content: center;" alt="" src="https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png" id="deviceImage" />
+		  
+		<input style="display: block; width: 100%; height: 50px; font-size: " id="RestartBttn" onclick="restart()" value="RESTART" type="button" >
 	  </div>
 
 	</div>
-		
+	
+	
 	<script type="text/javascript">
 		var Q1 = document.getElementById("theQuestion1");
 		var Q2 = document.getElementById("theQuestion2");
@@ -431,11 +436,10 @@
 			document.getElementById("theResults").innerHTML
                 = "You are a Mobile User!";
 				document.getElementById("theDescription").innerHTML
-                = "Exceptionally mobile, uses cloud applications/email, relies heavily on phone calls/texts.";
-				document.getElementById("theNeeds").innerHTML
-                = "Your needs:  Wireless connectivity. Access to cloud applications and email Extremely portable device.";
+                = "This is for users who use cloud or mobile applications, need exceptional battery life and portability, and frequently make phone calls or send text messages.";
+				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Samsung Galaxy Tab A (+accessories).";
+                = "Device(s) we recommend:  Samsung Galaxy Tab A (+accessories), iOS or Android smartphone, and Microsoft Surface Laptop Go.";
 				
 				if (!image.src.match("https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg")) {
 					image.src = "https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg";
@@ -446,10 +450,8 @@
                 = "You are a Mobile+ User!";
 				document.getElementById("theDescription").innerHTML
                 = "Elevated workload, uses cloud applications/email, mobile apps, frequent phone calls/texts.";
-				document.getElementById("theNeeds").innerHTML
-                = "Your needs:  Wireless connectivityAccess to cloud and/or mobile apps and emailExtremely portable device.";
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories).";
+                = "Devices we recommend:  Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories).";
 				if (!image.src.match("https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg")) {
 					image.src = "https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg";
 				}
@@ -458,11 +460,10 @@
 			document.getElementById("theResults").innerHTML
                 = "You are a Standard User!";
 				document.getElementById("theDescription").innerHTML
-                = "Moderate workload, uses cloud/desktop applications and email, no specialized software, frequently uses chat, video and voice calls.";
-				document.getElementById("theNeeds").innerHTML
-                = "Your needs:  Wireless connectivity Access to cloud/desktop applications and email Teleconferencing capability Minimal processing power.";
+                = "This is for users who use cloud and desktop applications, need to multitask and manage presentations, and frequently make video and voice calls via Teams.";
+				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Microsoft Surface Laptop Go, Lenovo X13.";
+                = "Device(s) we recommend: Microsoft Surface Laptop Go and Lenovo X13";
 				
 				if (!image.src.match("https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg")) {
 					image.src = "https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg";
@@ -473,11 +474,10 @@
 			document.getElementById("theResults").innerHTML
                 = "You are a Heavy User!";
 				document.getElementById("theDescription").innerHTML
-                = "Demanding workload, uses cloud/desktop applications and email, may use specialized software, frequently uses chat, video and voice calls.";
-				document.getElementById("theNeeds").innerHTML
-                = "Your needs:  Access to cloud/desktop applications and email Teleconferencing capability Moderate processing power Portable device.";
+                = "This is for users who use cloud, desktop, and specialized applications, need exceptional processing power, frequently make video and voice calls via Teams.";
+				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Lenovo.";
+                = "Device(s) we recommend:  Lenovo X13 and Lenovo L14";
 				
 				if (!image.src.match("https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg")) {
 					image.src = "https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg";
@@ -486,13 +486,9 @@
 			}
 			if(results >= 1000){
 			document.getElementById("theResults").innerHTML
-                = "Built to Order!";
+                = "You need something built!";
 				document.getElementById("theDescription").innerHTML
-                = "Demanding workload, uses cloud/desktop applications and email, must use specialized software, frequently uses chat, video and voice calls.";
-				document.getElementById("theNeeds").innerHTML
-                = "Your needs:  Access to cloud/desktop applications and email Teleconferencing capability Extreme processing power Expanded system memory, storage, dedicated GPU(s).";
-				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  High-end desktop.";
+                = "Please contact your supply chain lead for details.";
 				
 				if (!image.src.match("https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png")) {
 					image.src = "https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png";
@@ -501,6 +497,11 @@
 			}
 		}	
 	
+	</script>
+	<script type="text/javascript">
+	function restart() {
+			window.location.reload(true);
+		}
 	</script>
 </body>
 </html>
