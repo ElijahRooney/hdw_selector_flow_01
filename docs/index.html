@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Form Prototype 3000</title>
+<title>FFP Hardware Selector Tool</title>
 <style>
 	body{
 		display: flex;
@@ -57,7 +57,7 @@
 		  margin: 15% auto; /* 15% from the top and centered */
 		  padding: 20px;
 		  border: 1px solid #888;
-		  width: 80%; /* Could be more or less, depending on screen size */
+		  width: 90%; /* Could be more or less, depending on screen size */
 		}
 
 		/* The Close Button */
@@ -76,8 +76,8 @@
 		}
 		
 		#deviceImage{
-			width: 30%; 
-			height: 30%;
+			width: 80%; 
+			height: 80%;
 			align-self: center;
 			margin-top: -10px;
 		}
@@ -163,7 +163,9 @@
 		<form name="theForm3000" id="Form3000" class="Form3000" style="display: flex; flex-direction: column; background-color: #FFFFFF">
 			<div style = "padding: 10px;">
 				<h1>Fit-for-Purpose Hardware Selector Tool</h1>
-				<p>Choose a response that best fits your purpose. Just click DONE when complete!</p>
+				<p>Choose a response that best fits your purpose. Just click DONE when complete!
+				<br>
+				(5 Questions in Total)</p>
 			</div>
 			<div class="theQuestion" id="theQuestion1">
 				<p>1) Where will you use your device most often?
@@ -192,7 +194,7 @@
 				<p><input type="radio" name="question4" value="option13" onclick="getRadioValue4()">Performance</p>
 			</div>
 			<div class="theQuestion" id="theQuestion5" style="display: none;">
-				<p>5) How large a screendo you need to perform your work?</p>
+				<p>5) How large a screen do you need to perform your work?</p>
 				<p><input type="radio" name="question5" value="option14" onclick="getRadioValue5()">Less than 8 inches </p>
 				<p><input type="radio" name="question5" value="option15" onclick="getRadioValue5()">8–13 inches </p>
 				<p><input type="radio" name="question5" value="option16" onclick="getRadioValue5()">Greater than 13 inches</p>
@@ -219,7 +221,7 @@
 		<div><p id="theRec"></p></div>
 		<img style="align-content: center;" alt="" src="https://rescue.box.com/shared/static/68aildna9x0wro42413qz82httxbwdk8.png" id="deviceImage" />
 		  
-		<input style="display: block; width: 100%; height: 50px; font-size: " id="RestartBttn" onclick="restart()" value="RESTART" type="button" >
+		<input style="display: block; width: 100%; height: 50px; font-size: 14px; align-self: center" id="RestartBttn" onclick="restart()" value="Find the Hardware for You" type="button" >
 	  </div>
 
 	</div>
@@ -439,7 +441,7 @@
                 = "This is for users who use cloud or mobile applications, need exceptional battery life and portability, and frequently make phone calls or send text messages.";
 				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Samsung Galaxy Tab A (+accessories), iOS or Android smartphone, and Microsoft Surface Laptop Go.";
+                = "Suggested devices:  Samsung Galaxy Tab A Lite (+accessories) and an iOS or Android smartphone.";
 				
 				if (!image.src.match("https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg")) {
 					image.src = "https://rescue.box.com/shared/static/1ilc3w6qemru0aoym2or2l1s961dg38q.jpg";
@@ -449,11 +451,11 @@
 			document.getElementById("theResults").innerHTML
                 = "You are a Mobile+ User!";
 				document.getElementById("theDescription").innerHTML
-                = "Elevated workload, uses cloud applications/email, mobile apps, frequent phone calls/texts.";
+                = "This is for users who has an elevated workload, uses cloud applications/email, mobile apps,  and frequently make phone calls or send text messages.";
 				document.getElementById("theRec").innerHTML
-                = "Devices we recommend:  Samsung Galaxy Tab A, Microsoft Surface Laptop Go (+accessories).";
-				if (!image.src.match("https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg")) {
-					image.src = "https://rescue.box.com/shared/static/6o8itvpxiisvg2cverwg8ckapcv5v5oi.jpg";
+                = "Suggested devices:  Samsung Galaxy Tab A Lite and Microsoft Surface Laptop Go (+accessories).";
+				if (!image.src.match("https://rescue.box.com/shared/static/vhcx86kvia13i1jmiml6ckutilhmqolb.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/vhcx86kvia13i1jmiml6ckutilhmqolb.jpg";
 				}
 			}
 			if((results >= 40) && (results < 100)){
@@ -463,24 +465,24 @@
                 = "This is for users who use cloud and desktop applications, need to multitask and manage presentations, and frequently make video and voice calls via Teams.";
 				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend: Microsoft Surface Laptop Go and Lenovo X13";
+                = "Suggested devices: Microsoft Surface Laptop Go and Lenovo X13";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg")) {
-					image.src = "https://rescue.box.com/shared/static/u1fjhnq6o63tbvki4wpczu543fj84n2x.jpg";
+				if (!image.src.match("https://rescue.box.com/shared/static/lt8bdob7uezwvppfvwajew5opckhjsuf.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/lt8bdob7uezwvppfvwajew5opckhjsuf.jpg";
 				}
 				
 			}
 			if((results >= 100) && (results <1000)){
 			document.getElementById("theResults").innerHTML
-                = "You are a Heavy User!";
+                = "You are an Advance User!";
 				document.getElementById("theDescription").innerHTML
-                = "This is for users who use cloud, desktop, and specialized applications, need exceptional processing power, frequently make video and voice calls via Teams.";
+                = "This is for users who use cloud, desktop, and specialized applications, need exceptional processing power, and frequently make video and voice calls via Teams.";
 				
 				document.getElementById("theRec").innerHTML
-                = "Device(s) we recommend:  Lenovo X13 and Lenovo L14";
+                = "Suggested devices:  Lenovo X13 and Lenovo L14";
 				
-				if (!image.src.match("https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg")) {
-					image.src = "https://rescue.box.com/shared/static/8dh9gkqe7twzictwrgjgjw5vlop3zhf2.jpg";
+				if (!image.src.match("https://rescue.box.com/shared/static/whrkeezxjjgm01w8p96gnqqb1p7k5hq8.jpg")) {
+					image.src = "https://rescue.box.com/shared/static/whrkeezxjjgm01w8p96gnqqb1p7k5hq8.jpg";
 				}
 				
 			}
